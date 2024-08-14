@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php include './conn.php'; ?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buba Receitas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <?php include 'navbar.php' ?>
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav"></div>
+            <div class="col-sm-8 text-left">
+
+                <?php
+                // Conexão com o banco de dados
+                if (!$conn) {
+                    die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
+                }
+
+                // Obtém o ID da receita da URL
+                $id_rec = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+                // Consulta SQL para recuperar os detalhes da receita
+                $sql_receita = "SELECT nome_rec, ingredientes, modo_pr, tempo_pr, grau_dif, sugestao_pr FROM receita WHERE id_rec = $id_rec";
+                $result_receita = mysqli_query($conn, $sql_receita);
+
+                // Verifica se encontrou a receita
+                if (mysqli_num_rows($result_receita) > 0) {
+                    $receita = mysqli_fetch_assoc($result_receita);
+
+                    // Exibe os detalhes da receita
+                    echo "<h4 class='h4-apresentacao'>" . htmlspecialchars($receita['nome_rec']) . "</h4>";
+                    echo "<div class='container'>";
+                    echo "<div class='cards'>";
+                    echo "<h4>Ingredientes</h4>";
+                    echo "<div class='cards-container'>";
+                    echo "<p>" . nl2br(htmlspecialchars($receita['ingredientes'])) . "</p>";
+                    echo "</div>";
+                    echo "<h4>Modo de Preparo</h4>";
+                    echo "<div class='show-more-container'>";
+                    echo "<p>" . nl2br(htmlspecialchars($receita['modo_pr'])) . "</p>";
+                    echo "</div>";
+                    echo "<div class='show-more-container'>";
+                    echo "<p>Tempo de Preparo: </p>";
+                    echo "<p>" . nl2br(htmlspecialchars($receita['tempo_pr'])) . "</p>";
+                    echo "</div>";
+                    echo "<div class='show-more-container'>";
+                    echo "<p>Grau de dificuldade: </p>";
+                    if ($receita['grau_dif']==1){
+                        echo "<p>Fácil</p>";
+                    } else if($receita['grau_dif']==2){
+                        echo "<p>Média</p>";
+                    } else if($receita['grau_dif']==3){
+                        echo "<p>Difícil</p>";
+                    }
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                } else {
+                    echo "<p>Receita não encontrada.</p>";
+                }
+
+                // Fecha a conexão com o banco de dados
+                mysqli_close($conn);
+                ?>
+            </div>
+            <div class="col-sm-2 sidenav"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

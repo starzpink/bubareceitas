@@ -1,0 +1,65 @@
+.navbar {
+    background-color: #252e2f;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+body {
+    color: #252e2f;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+.table-style {
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.table-style th,
+.table-style td {
+    color: #252e2f;
+}
+
+.table-style th {
+    background-color: #bae8ee;
+    color: #252e2f;
+}
+
+form {
+    padding: 20px;
+    border-radius: 10px;
+    color: #000000;
+}
+
+h1 {
+    color: #EEE8AA;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+h4 {
+    color: #000000;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    color: #EEE8AA;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,238 @@
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: #4a5c5f;
+}
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+    height: auto;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os filhos se movam para a linha seguinte quando não cabem */
+    background-color: #4a5c5f;
+    height: auto; /* Ajusta a altura automaticamente */
+    width: 100%;
+
+}
+
+.svg-container {
+    display: flex;
+    align-items: center;
+    background-color: #4a5c5f;
+    flex: 1; /* Faz com que o container ocupe o mesmo espaço que o index-container */
+    min-width: 300px; /* Define uma largura mínima para evitar que o conteúdo fique pequeno demais */
+}
+
+.index-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    align-items: center;
+    background-color: #4a5c5f;
+    flex: 1; /* Faz com que o container ocupe o mesmo espaço que o svg-container */
+    min-width: 300px; /* Define uma largura mínima para evitar que o conteúdo fique pequeno demais */
+    list-style-type: none;
+    margin: 2%;
+    padding: 2%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.index-container .item a {
+    color: #bae8ee;
+    text-decoration: underline;
+}
+path:hover {
+    fill: #bae8ee;
+}
+path.cont:hover {
+    fill: #252e2f;
+}
+path.entrecorte:hover {
+    fill: #252e2f;
+}
+h4 {
+    color: #252e2f;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 0;
+    margin-bottom: -1%;
+}
+.h4-apresentacao {
+    color: #252e2f;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 0;
+    margin-bottom: 1%;
+}
+* {
+    box-sizing: border-box;
+}
+
+/* Float four columns side by side */
+.column-box {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+.row{
+    margin-bottom: 1%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the counter cards */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+.card-receitas {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.card-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.receita {
+    margin-bottom: 10px;
+}
+.receita-titulo a {
+    text-decoration: none;
+    color: #252e2f;
+}
+.receita-titulo a:hover {
+    text-decoration: underline;
+
+}
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+.show-more-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.show-more {
+    padding: 10px 20px;
+    border: none;
+    background-color: #252e2f;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.view-all {
+    padding: 10px 20px;
+    border: none;
+    background-color: #252e2f;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.corte-section {
+    margin-bottom: 40px;
+}
+.corte-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.subcorte-cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.subcorte-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+.subcorte-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+        background-color: #4a5c5f;
+        
+    }
+    .row.content {
+        height: auto;
+    }
+    .container {
+        flex-direction: column; /* Muda a direção do flex para coluna em telas pequenas */
+        height: auto; /* Permite que a altura se ajuste ao conteúdo */
+    }
+
+    .svg-container, .index-container {
+        flex: none; /* Desabilita o comportamento flexível */
+        width: 100%; /* Faz os contêineres ocuparem 100% da largura */
+        margin: 0; /* Remove as margens */
+        padding: 10px 0; /* Ajusta o padding conforme necessário */
+    }
+
+    .index-container {
+        display: flex; /* Muda para flexbox para facilitar o alinhamento centralizado */
+        flex-direction: column; /* Faz com que os itens fiquem em coluna */
+        align-items: center; /* Centraliza os itens horizontalmente */
+    }
+
+    .index-container .column {
+        width: 100%; /* Garante que as colunas ocupem toda a largura disponível */
+    }
+
+    .index-container .item {
+        text-align: center; /* Centraliza o texto dentro de cada item */
+    }
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    /* Media queries for responsiveness */
+    @media (max-width: 1200px) {
+        .cards-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 900px) {
+        .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .cards-container {
+            grid-template-columns: 1fr;
+        }
+    }
+}
