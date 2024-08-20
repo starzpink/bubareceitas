@@ -6,12 +6,13 @@
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
     height: auto;
+    background-color: #4a5c5f;
 }
 
 /* Set gray background color and 100% height */
 .sidenav {
     padding-top: 20px;
-    background-color: #f1f1f1;
+    background-color: #4a5c5f;
     height: 100%;
 }
 
@@ -19,7 +20,7 @@
     display: flex;
     flex-wrap: wrap; /* Permite que os filhos se movam para a linha seguinte quando não cabem */
     background-color: #4a5c5f;
-    height: auto; /* Ajusta a altura automaticamente */
+    height: 80vh; /* Ajusta a altura automaticamente */
     width: 100%;
 
 }
@@ -49,16 +50,23 @@
 .index-container .item a {
     color: #bae8ee;
     text-decoration: underline;
+    font-size: 2rem;
 }
 path:hover {
     fill: #bae8ee;
 }
+
+.nome_corte:hover + .id_corte {
+    stroke: #252e2f;
+}
+
 path.cont:hover {
     fill: #252e2f;
 }
 path.entrecorte:hover {
     fill: #252e2f;
 }
+
 h4 {
     color: #252e2f;
     text-align: center;

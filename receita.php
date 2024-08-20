@@ -39,29 +39,28 @@
                     $receita = mysqli_fetch_assoc($result_receita);
 
                     // Exibe os detalhes da receita
-                    echo "<h4 class='h4-apresentacao'>" . htmlspecialchars($receita['nome_rec']) . "</h4>";
-                    echo "<div class='container'>";
-                    echo "<div class='cards'>";
+                    echo "<h2 class='h4-apresentacao'>" . htmlspecialchars($receita['nome_rec']) . "</h2>";
+                    echo "<div class='1'>";
+                    echo "<div class='2'>";
                     echo "<h4>Ingredientes</h4>";
-                    echo "<div class='cards-container'>";
+                    echo "<div class='3'>";
                     echo "<p>" . nl2br(htmlspecialchars($receita['ingredientes'])) . "</p>";
                     echo "</div>";
                     echo "<h4>Modo de Preparo</h4>";
-                    echo "<div class='show-more-container'>";
+                    echo "<div class='4'>";
                     echo "<p>" . nl2br(htmlspecialchars($receita['modo_pr'])) . "</p>";
                     echo "</div>";
-                    echo "<div class='show-more-container'>";
-                    echo "<p>Tempo de Preparo: </p>";
-                    echo "<p>" . nl2br(htmlspecialchars($receita['tempo_pr'])) . "</p>";
+                    echo "<div class='5'>";
+                    echo "<p>Tempo de Preparo: " . nl2br(htmlspecialchars($receita['tempo_pr'])) . "</p>";
                     echo "</div>";
-                    echo "<div class='show-more-container'>";
-                    echo "<p>Grau de dificuldade: </p>";
+                    echo "<div class='5'>";
+                    echo "<p> Grau de dificuldade: ";
                     if ($receita['grau_dif']==1){
-                        echo "<p>Fácil</p>";
+                        echo "Fácil</p>";
                     } else if($receita['grau_dif']==2){
-                        echo "<p>Média</p>";
+                        echo "Médio</p>";
                     } else if($receita['grau_dif']==3){
-                        echo "<p>Difícil</p>";
+                        echo "Difícil</p>";
                     }
                     echo "</div>";
                     echo "</div>";

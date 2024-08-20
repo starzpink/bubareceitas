@@ -11,4 +11,3 @@ if (!$conn) {
     die("Falha na conexão:" . $conn->connect_error);
 }
 ?>
-

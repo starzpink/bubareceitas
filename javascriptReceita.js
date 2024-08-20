@@ -320,6 +320,7 @@ $(document).ready(function () {
         $("#view-item").find("select[name='grau_dif']").val(grau_dif);
         $("#view-item").find("input[name='sugestao_pr']").val(sugestao_pr);
         $("#view-item").find("select[name='id_corte']").val(id_corte);
+        getSubcorteSelect(id_corte,'#id_subcorte_view');
         $("#view-item").find("select[name='id_subcorte']").val(id_subcorte);
     });
 
