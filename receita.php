@@ -11,13 +11,13 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!--  Insere icones do boxicons -->
 </head>
 
 <body>
     <?php include 'navbar.php' ?>
     <div class="container-fluid text-center">
-        <div class="row content">
+        <div class="row content receitacor">
             <div class="col-sm-2 sidenav"></div>
             <div class="col-sm-8 text-left">
 
@@ -39,22 +39,13 @@
                     $receita = mysqli_fetch_assoc($result_receita);
 
                     // Exibe os detalhes da receita
-                    echo "<h2 class='h4-apresentacao'>" . htmlspecialchars($receita['nome_rec']) . "</h2>";
+                    echo "<h1>" . htmlspecialchars($receita['nome_rec']) . "</h1>";
                     echo "<div class='1'>";
                     echo "<div class='2'>";
-                    echo "<h4>Ingredientes</h4>";
-                    echo "<div class='3'>";
-                    echo "<p>" . nl2br(htmlspecialchars($receita['ingredientes'])) . "</p>";
-                    echo "</div>";
-                    echo "<h4>Modo de Preparo</h4>";
-                    echo "<div class='4'>";
-                    echo "<p>" . nl2br(htmlspecialchars($receita['modo_pr'])) . "</p>";
+                    echo "<p class='texto-receita'> <i class='bx bx-timer bx-md'></i> Tempo de Preparo: " . nl2br(htmlspecialchars($receita['tempo_pr'])) . "</p>";
                     echo "</div>";
                     echo "<div class='5'>";
-                    echo "<p>Tempo de Preparo: " . nl2br(htmlspecialchars($receita['tempo_pr'])) . "</p>";
-                    echo "</div>";
-                    echo "<div class='5'>";
-                    echo "<p> Grau de dificuldade: ";
+                    echo "<p class='texto-receita'> <i class='bx bx-bar-chart bx-md'></i> Grau de dificuldade: ";
                     if ($receita['grau_dif']==1){
                         echo "Fácil</p>";
                     } else if($receita['grau_dif']==2){
@@ -62,6 +53,15 @@
                     } else if($receita['grau_dif']==3){
                         echo "Difícil</p>";
                     }
+                    echo "<h4 class='subt-receita'>Ingredientes</h4>";
+                    echo "<div class='3'>";
+                    echo "<p class='texto-receita'>" . nl2br(htmlspecialchars($receita['ingredientes'])) . "</p>";
+                    echo "</div>";
+                    echo "<h4 class='subt-receita'>Modo de Preparo</h4>";
+                    echo "<div class='4'>";
+                    echo "<p class='texto-receita'>" . nl2br(htmlspecialchars($receita['modo_pr'])) . "</p>";
+                    echo "</div>";
+                    echo "<div class='5'>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";

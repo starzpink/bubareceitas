@@ -19,7 +19,8 @@
                 <div class="col-sm-2 sidenav"></div>
                 <div class="col-sm-8 text-left">
 
-                    <h4 class="h4-apresentacao">Seja bem-vindo(a) ao Buba Receitas, aqui você encontrará deliciosos pratos preparados com cortes bubalinos!</h4>
+                    <h1 class="h1-apresentacao">Buba Receitas</h1>
+                    <h2 class="h2-apresentacao">Deliciosos pratos preparados com cortes bubalinos!</h2>
 
                     <div class="container">
                         <div class="svg-container">

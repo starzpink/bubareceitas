@@ -1,12 +1,51 @@
+/* Tira a decoração padrão dos links (underline) */
+a { 
+    text-decoration: none;
+}
+
+/* Centraliza os boxicons com o texto */
+p {
+    display: flex;
+    align-items: center;
+}
+
+.bx {
+    margin-right: 2px;
+}
+
+.bx-bar-chart {
+    padding-bottom: 2px;
+}
+
+.subt-receita {
+    background-color: #c8d3d4;
+    margin-bottom: 2px;
+}
+
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
     background-color: #4a5c5f;
 }
+
+/* Colunas divs que centralizam o site */
+.col-sm-2 {
+    visibility: hidden;
+}
+
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
     height: auto;
     background-color: #4a5c5f;
+}
+
+.row.content.receitacor {
+    height: auto;
+    background-color: white;
+}
+
+.texto-receita {
+    font-size: 1.7rem;
 }
 
 /* Set gray background color and 100% height */
@@ -20,9 +59,8 @@
     display: flex;
     flex-wrap: wrap; /* Permite que os filhos se movam para a linha seguinte quando não cabem */
     background-color: #4a5c5f;
-    height: 80vh; /* Ajusta a altura automaticamente */
+    height: 55vh; /* Ajusta a altura automaticamente */
     width: 100%;
-
 }
 
 .svg-container {
@@ -30,7 +68,7 @@
     align-items: center;
     background-color: #4a5c5f;
     flex: 1; /* Faz com que o container ocupe o mesmo espaço que o index-container */
-    min-width: 300px; /* Define uma largura mínima para evitar que o conteúdo fique pequeno demais */
+    min-width: 500px; /* Define uma largura mínima para evitar que o conteúdo fique pequeno demais */
 }
 
 .index-container {
@@ -50,6 +88,7 @@
 .index-container .item a {
     color: #bae8ee;
     text-decoration: underline;
+    text-decoration-thickness: 0.09rem;
     font-size: 2rem;
 }
 path:hover {
@@ -74,13 +113,21 @@ h4 {
     padding: 10px 0;
     margin-bottom: -1%;
 }
-.h4-apresentacao {
-    color: #252e2f;
+.h1-apresentacao {
+    color: white;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    padding: 10px 0;
+    padding: 5px 0;
     margin-bottom: 1%;
 }
+
+.h2-apresentacao {
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1%;
+}
+
 * {
     box-sizing: border-box;
 }

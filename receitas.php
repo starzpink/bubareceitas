@@ -16,7 +16,7 @@
 <body>
     <?php include 'navbar.php' ?>
     <div class="container-fluid text-center">
-        <div class="row content">
+        <div class="row content receitacor">
             <div class="col-sm-2 sidenav"></div>
             <div class="col-sm-8 text-left">
                 <h4>Índice de Receitas</h4>
