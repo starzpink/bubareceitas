@@ -1,6 +1,6 @@
 <?php
 
-class Adm {
+class Adm { //criação de classe de administrador para login
 
     public $id_adm, $nome, $email, $senha, $nivel_permissao;
 
@@ -13,13 +13,13 @@ class Adm {
     }
     
     function validaEmailSenha($email, $senha) {
-        // Verificar se o e-mail está correto
+        // Verifica se o e-mail e senha estão corretos
         if ($email == $this->email && $senha == $this->senha) {
                 return true;
             }
     }
 
-    function getNivelPermissao() {
+    function getNivelPermissao() { //obtém o nivel de permissão
         return $this->nivel_permissao;
     }
 

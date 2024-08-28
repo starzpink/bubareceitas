@@ -1,4 +1,5 @@
 <?php
+//carregamento das receitas para a area administrativa
 
 include './conn.php';
 session_start();

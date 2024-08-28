@@ -1,4 +1,6 @@
 <?php
+//carregamento das receitas do banco de dados para o site
+
 include './conn.php';
 
 $id_corte = isset($_GET['id_corte']) ? $_GET['id_corte'] : '';

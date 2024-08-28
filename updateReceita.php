@@ -5,22 +5,22 @@ session_start();
 
 header('Content-type: application/json');
 
-// Validate POST data
+// valida dados POST
 if (empty($_POST['nome_rec']) || empty($_POST['ingredientes']) || empty($_POST['modo_pr']) || empty($_POST['tempo_pr']) || !isset($_POST['grau_dif']) || empty($_POST['sugestao_pr']) || !isset($_POST['id_corte']) || !isset($_POST['id_subcorte']) || !isset($_POST['id_rec'])) {
     echo json_encode(['msg' => 'Dados inválidos ou faltando.']);
     exit;
 }
 
-// Prepare and sanitize POST data
+// prepara as variaveis para enviar via post
 $nome_rec = $_POST['nome_rec'];
 $ingredientes = $_POST['ingredientes'];
 $modo_pr = $_POST['modo_pr'];
 $tempo_pr = $_POST['tempo_pr'];
-$grau_dif = intval($_POST['grau_dif']); // Ensure this is an integer
+$grau_dif = intval($_POST['grau_dif']);
 $sugestao_pr = $_POST['sugestao_pr'];
-$id_corte = intval($_POST['id_corte']); // Ensure this is an integer
-$id_subcorte = intval($_POST['id_subcorte']); // Ensure this is an integer
-$id_rec = intval($_POST['id_rec']); // Ensure this is an integer
+$id_corte = intval($_POST['id_corte']);
+$id_subcorte = intval($_POST['id_subcorte']);
+$id_rec = intval($_POST['id_rec']);
 
 // Prepare SQL statement
 $sql = "UPDATE receita 

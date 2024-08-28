@@ -1,7 +1,9 @@
 <?php
+//carregamento dos subcortes depois de selecionado o corte
+
 include './conn.php';
 
-header('Content-Type: application/json'); // Certifique-se de definir o cabeçalho para JSON
+header('Content-Type: application/json');
 
 if (isset($_GET['id_corte'])) {
     $id_corte = $_GET['id_corte'];

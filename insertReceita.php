@@ -1,4 +1,5 @@
 <?php
+//inserção de receitas no banco de dados
 
 include 'conn.php';
 include_once './adm.php';

@@ -20,7 +20,9 @@
             <div class="col-sm-2 sidenav"></div>
             <div class="col-sm-8 text-left">
                 <h4>Índice de Receitas</h4>
+
                 <div class="filtros">
+                    <!-- filtros de corte de carne -->
                     <label for="corte-filter">Corte:</label>
                     <select id="corte-filter" onchange="filterContent()">
                         <option value="">Todos</option>
@@ -38,6 +40,7 @@
                         ?>
                     </select>
 
+                    <!-- filtros de subcorte de carne -->
                     <div id="subcorte-filter-container" style="display:none;">
                         <label for="subcorte-filter">Subcorte:</label>
                         <select id="subcorte-filter" onchange="filterContent()">
@@ -47,7 +50,7 @@
                 </div>
                 <div class="cards">
                     <?php
-
+                    //consulta do banco de dados para recuperar os cortes
                     if (!$conn) {
                         die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
                     }
@@ -60,25 +63,30 @@
                             $id_corte = $corte['id_corte'];
                             $nome_corte = $corte['nome_corte'];
 
+                            
                             echo "<div class='card-receitas' data-corte='$id_corte'>";
                             echo "<div class='card-title'>$nome_corte</div>";
 
+                            //recupera do banco de dados e exibe os cards de subcortes
                             $sql_subcortes = "SELECT id_subcorte, nome_subcorte FROM subcorte WHERE id_corte = $id_corte";
                             $result_subcortes = mysqli_query($conn, $sql_subcortes);
 
                             if (mysqli_num_rows($result_subcortes) > 0) {
                                 echo "<div class='subcorte-cards-container'>";
 
+                                
                                 while ($subcorte = mysqli_fetch_assoc($result_subcortes)) {
                                     $id_subcorte = $subcorte['id_subcorte'];
                                     $nome_subcorte = $subcorte['nome_subcorte'];
 
+                                    //recupera o id e titulo das receitas do banco de dados a partir do subcorte
                                     $sql_receitas = "SELECT id_rec, nome_rec FROM receita WHERE id_subcorte = $id_subcorte";
                                     $result_receitas = mysqli_query($conn, $sql_receitas);
 
                                     echo "<div class='subcorte-card' data-subcorte='$id_subcorte'>";
                                     echo "<div class='subcorte-title'>$nome_subcorte</div>";
 
+                                    //carrega os titulos das receitas e as exibe nos cards
                                     if (mysqli_num_rows($result_receitas) > 0) {
                                         while ($receita = mysqli_fetch_assoc($result_receitas)) {
                                             $id_receita = $receita['id_rec'];
@@ -94,6 +102,7 @@
                                     echo "</div>";
                                 }
 
+                                // para as receitas não pertencentes a um subcorte, são separadas em outro card
                                 $sql_receitas_sem_subcorte = "SELECT id_rec, nome_rec FROM receita WHERE id_corte = $id_corte AND id_subcorte IS NULL";
                                 $result_receitas_sem_subcorte = mysqli_query($conn, $sql_receitas_sem_subcorte);
 
@@ -109,9 +118,9 @@
                                         echo "</div>";
                                     }
                                 }
-
                                 echo "</div>";
                             } else {
+                                //recupera do banco de dados as receitas de cortes sem subcortes
                                 $sql_receitas = "SELECT id_rec, nome_rec FROM receita WHERE id_corte = $id_corte";
                                 $result_receitas = mysqli_query($conn, $sql_receitas);
 

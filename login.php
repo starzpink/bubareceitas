@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- pagina de login -->
 <?php session_start(); ?>
 <html lang="pt-br">
     <head>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <?php include './conn.php'; ?>
@@ -46,6 +46,8 @@
                     echo "</div>";
                     echo "<div class='5'>";
                     echo "<p class='texto-receita'> <i class='bx bx-bar-chart bx-md'></i> Grau de dificuldade: ";
+
+                    //exibe o rotulo com base no id
                     if ($receita['grau_dif']==1){
                         echo "Fácil</p>";
                     } else if($receita['grau_dif']==2){
@@ -57,14 +59,12 @@
                     echo "<div class='3'>";
                     echo "<p class='texto-receita'>" . nl2br(htmlspecialchars($receita['ingredientes'])) . "</p>";
                     echo "</div>";
+
                     echo "<h4 class='subt-receita'>Modo de Preparo</h4>";
                     echo "<div class='4'>";
                     echo "<p class='texto-receita'>" . nl2br(htmlspecialchars($receita['modo_pr'])) . "</p>";
                     echo "</div>";
-                    echo "<div class='5'>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "</div>";
+
                 } else {
                     echo "<p>Receita não encontrada.</p>";
                 }

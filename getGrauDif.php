@@ -1,4 +1,6 @@
 <?php
+//carregamento dos graus de dificuldades das receitas do banco de dados para o site
+
 include './conn.php';
 
 $ini = isset($_GET['page']) ? ($_GET['page'] - 1) * 10 : 0;

@@ -126,7 +126,7 @@
 
                     </div>
                     <div class="cards">
-                        <h4>Índice de Receitas</h4>
+                        <h4 class="branco">Índice de Receitas</h4>
                         <div class="cards-container">
                             <?php
                             if (!$conn) {
