@@ -57,7 +57,8 @@ $(document).ready(function () {
         });
     }
 
-    function manageRow(data) { //criação da tabela
+    //criação da tabela
+    function manageRow(data) { 
 
         dataCon = data;
         var rows = '';
@@ -76,7 +77,8 @@ $(document).ready(function () {
         $("tbody").html(rows);
     }
 
-    function createHeadTable() { //cabeçalho da tabela
+    //cabeçalho da tabela
+    function createHeadTable() {
 
         var rows = '<tr>';
         rows = rows + '<th> Código </th>';
@@ -86,7 +88,8 @@ $(document).ready(function () {
         $("thead").html(rows);
     }
 
-    function getGrauDifSelect() { //select de grau de dificuldade
+    //select de grau de dificuldade
+    function getGrauDifSelect() { 
 
         $.ajax({
             dataType: 'json',
@@ -105,7 +108,8 @@ $(document).ready(function () {
         });
     }
 
-    function getCorteSelect() { //select da lista de cortes
+    //select da lista de cortes
+    function getCorteSelect() { 
 
         $.ajax({
             dataType: 'json',
@@ -124,7 +128,8 @@ $(document).ready(function () {
         });
     }
 
-    function getSubcorteSelect(idCorte, target) { //select de subcorte depois de selecionado o corte
+    //select de subcorte depois de selecionado o corte
+    function getSubcorteSelect(idCorte, target) {
         $.ajax({
             dataType: 'json',
             url: 'getSubcorte.php',
@@ -136,6 +141,9 @@ $(document).ready(function () {
                     options += '<option value="' + value.id_subcorte + '">' + value.nome_subcorte + '</option>';
                 });
                 $(target).prop('disabled', false);
+                if(target == '#id_subcorte_view'){
+                    $(target).prop('disabled', true);
+                }
             } else {
                 $(target).prop('disabled', true);
             }
@@ -148,7 +156,8 @@ $(document).ready(function () {
         });
     }
 
-    function createForm() { //formulario de inserção de receita
+    //formulario de inserção de receita
+    function createForm() { 
 
         var html = '';
         html = html + '<div class="form-group">';
@@ -194,7 +203,8 @@ $(document).ready(function () {
         $("#create-item").find("form").html(html);
     }
 
-    $(".crud-submit").click(function (e) { //ao clicar no botão de salvar no formulario de criação
+    //ao clicar no botão de salvar no formulario de criação
+    $(".crud-submit").click(function (e) { 
         e.preventDefault();
         var form_action = $("#create-item").find("form").attr("action");
         var nome_rec = $("#create-item").find("input[name='nome_rec']").val();
@@ -230,12 +240,14 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', '#id_corte', function () { //evento click para carregamento dos subcortes
+    //evento click para carregamento dos subcortes
+    $(document).on('click', '#id_corte', function () { 
         var corteId = $(this).val();
         getSubcorteSelect(corteId, '#id_subcorte');
     });
 
-    function createEditForm() { //formulário de edição de receita
+    //formulário de edição de receita
+    function createEditForm() {
 
         var html = '<input type="hidden" name="cod" class="edit-id">';
         html = html + '<div class="form-group">';
@@ -287,7 +299,8 @@ $(document).ready(function () {
 
     }
 
-    $("body").on("click", ".edit-item", function () { //recupera os dados ao clicar no botão de editar
+    //recupera os dados ao clicar no botão de editar
+    $("body").on("click", ".edit-item", function () {
         var index = $(this).parent("td").data('id');
 
         var id_rec = dataCon[index].id_rec;
@@ -331,7 +344,8 @@ $(document).ready(function () {
         });
     });
 
-    $(".crud-submit-edit").click(function (e) { //envia as edições feitas ao banco de dados
+    //envia as edições feitas ao banco de dados
+    $(".crud-submit-edit").click(function (e) {
 
         e.preventDefault();
         var form_action = $("#edit-item").find("form").attr("action");
@@ -361,12 +375,14 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', '#id_corte_edit', function () { // Evento click para id_corte na edição
+    // Evento click para id_corte na edição
+    $(document).on('click', '#id_corte_edit', function () {
         var corteId = $(this).val();
         getSubcorteSelect(corteId, '#id_subcorte_edit');
     });
 
-    function createViewForm() { //visualização da receita
+    //formulario de visualização da receita
+    function createViewForm() { 
 
         var html = '<input type="hidden" name="cod" class="view-id">';
         html = html + '<div class="form-group">';
@@ -409,7 +425,8 @@ $(document).ready(function () {
 
     }
 
-    $("body").on("click", ".view-item", function () { //recupera os dados ao clicar no botão de visualizar
+    //recupera os dados ao clicar no botão de visualizar
+    $("body").on("click", ".view-item", function () { 
         var index = $(this).parent("td").data('id');
 
         var id_rec = dataCon[index].id_rec;
@@ -430,7 +447,7 @@ $(document).ready(function () {
         $("#view-item").find("select[name='grau_dif']").val(grau_dif);
         $("#view-item").find("input[name='sugestao_pr']").val(sugestao_pr);
         $("#view-item").find("select[name='id_corte']").val(id_corte);
-        $("#view-item").find("select[name='id_subcorte']").val(id_subcorte); // tentar adicionar id_subcorte ao parametro
+        $("#view-item").find("select[name='id_subcorte']").val(id_subcorte); // obs: tentar adicionar id_subcorte ao parametro
 
         getSubcorteSelect(id_corte, '#id_subcorte_view');
     });

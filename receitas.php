@@ -103,18 +103,20 @@
                                 }
 
                                 // para as receitas não pertencentes a um subcorte, são separadas em outro card
-                                $sql_receitas_sem_subcorte = "SELECT id_rec, nome_rec FROM receita WHERE id_corte = $id_corte AND id_subcorte IS NULL";
+                                $sql_receitas_sem_subcorte = "SELECT id_rec, nome_rec FROM receita WHERE id_corte = $id_corte AND id_subcorte = 0 || id_subcorte IS NULL";
                                 $result_receitas_sem_subcorte = mysqli_query($conn, $sql_receitas_sem_subcorte);
 
                                 if (mysqli_num_rows($result_receitas_sem_subcorte) > 0) {
+
+                                    echo "<div class='subcorte-card' data-subcorte=0>";
+                                    echo "<div class='subcorte-title'>Outras</div>";
+
                                     while ($receita = mysqli_fetch_assoc($result_receitas_sem_subcorte)) {
                                         $id_receita = $receita['id_rec'];
                                         $nome_receita = $receita['nome_rec'];
-                                        echo "<div class='subcorte-card' data-subcorte=''>";
-                                        echo "<div class='subcorte-title'>Receitas sem subcorte</div>";
+                                        
                                         echo "<div class='receita'>";
                                         echo "<div class='receita-titulo'><a href='receita.php?id=$id_receita'>$nome_receita</a></div>";
-                                        echo "</div>";
                                         echo "</div>";
                                     }
                                 }
@@ -130,8 +132,10 @@
                                     while ($receita = mysqli_fetch_assoc($result_receitas)) {
                                         $id_receita = $receita['id_rec'];
                                         $nome_receita = $receita['nome_rec'];
+                                        echo "<div class='subcorte-card' data-subcorte=''>";
                                         echo "<div class='receita'>";
                                         echo "<div class='receita-titulo'><a href='receita.php?id=$id_receita'>$nome_receita</a></div>";
+                                        echo "</div>";
                                         echo "</div>";
                                     }
                                 } else {
@@ -148,7 +152,11 @@
                     }
 
                     mysqli_close($conn);
+
+
+                    
                     ?>
+                    
                 </div>
             </div>
             <div class="col-sm-2 sidenav"></div>
